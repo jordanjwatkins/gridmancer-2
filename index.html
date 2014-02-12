@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Gridmancer 2</title>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="gridmancer.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+	<h2>Solution 2: Add Horizontal Lines and Combine Stacked Equal Width Lines - Solves in 30 Tiles</h2>
+	<div id="grid"></div>
+</body>
+</html>
+
+<style type="text/css">
+	*, *:before, *:after {
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	}
+	h2 {
+		text-align:center;
+	}
+	#grid {
+		counter-reset: tiles;
+		position:relative;
+		width:800px;
+		height:800px;
+		margin:0 auto;
+		background: #4E3939;
+		-webkit-transform: rotate(180deg) scaleX(-1);
+		-moz-transform: rotate(180deg) scaleX(-1);
+		transform: rotate(180deg) scaleX(-1);
+	}
+	.tile {
+		width:40px;
+		height:40px;
+		border:1px solid #4E3939;
+		position:absolute;
+		background: #DADADA;
+		counter-increment: tiles;
+		-webkit-transform: rotate(180deg) scaleX(-1);
+		-moz-transform: rotate(180deg) scaleX(-1);
+		transform: rotate(180deg) scaleX(-1);
+	}
+	.tile:before {
+		display:inline-block;
+		content: counter(tiles);
+		width:100%;
+		text-align:center;
+		vertical-align:middle;
+	}
+	.tile:after {
+		display:inline-block;
+		content: "";
+		height:100%;
+		width:0;
+		text-align:center;
+		vertical-align:middle;
+	}
+	.rect {
+		position:absolute;
+		background: #B36161;
+		border:2px solid #4E3939;
+		opacity: 0.8;
+	}
+</style>
